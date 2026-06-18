@@ -1,4 +1,5 @@
 <?php  
+date_default_timezone_set('America/Mexico_City'); // Ajusta según tu zona horaria
 // Proteger la página  
 require("Config/verificarSesion.php");  
   
@@ -156,7 +157,7 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
     </thead>
     <tbody>
       <?php
-      date_default_timezone_set('America/Mexico_City'); // Ajusta según tu zona horaria
+    
 
       $sqlEmpleadosActivos = $conexion->query("
         SELECT a.*, u.nombre, u.apellido, r.nombre AS rol_nombre
