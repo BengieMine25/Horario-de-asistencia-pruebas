@@ -61,39 +61,39 @@ verificarRol(['Administrador', 'Oficina']);
                     $sql = $conexion->query("SELECT * FROM horarios ORDER BY nombre ASC");
                     while ($resultado = $sql->fetch_assoc()) {
                     ?>
-                    <tr>
-                        <td><strong><?php echo $resultado['nombre']; ?></strong></td>
-                        <td>
-                            <?php
+                        <tr>
+                            <td><strong><?php echo $resultado['nombre']; ?></strong></td>
+                            <td>
+                                <?php
                                 if ($resultado['tipo'] == 'Fijo') {
                                     echo "<span class='badge bg-primary'>Fijo</span>";
                                 } else {
                                     echo "<span class='badge bg-info'>Flexible</span>";
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 if ($resultado['hora_inicio'] && $resultado['hora_fin']) {
-                                    echo $resultado['hora_inicio'] . " - " . $resultado['hora_fin'];
+                                    echo date('h:i A', strtotime($resultado['hora_inicio'])) . " - " . date('h:i A', strtotime($resultado['hora_fin']));
                                 } else {
                                     echo "<span class='text-muted'>Horario flexible</span>";
                                 }
                                 ?>
-                        </td>
-                        <td><?php echo $resultado['horas_minimas']; ?> horas</td>
-                        <td class="acciones">
-                            <a href="<?php echo BASE_URL; ?>Formularios/Horario/EditarHorario.php?Id=<?php echo $resultado['id']; ?>"
-                                class="btn btn-warning btn-sm">
-                                <i class="bi bi-pencil"></i> Editar
-                            </a>
-                            <a href="<?php echo BASE_URL; ?>CRUD/Horario/eliminarHorario.php?Id=<?php echo $resultado['id']; ?>"
-                                class="btn btn-danger btn-sm"
-                                onclick="event.preventDefault(); confirmarEliminacion(this.href)">
-                                <i class="bi bi-trash3"></i> Eliminar
-                            </a>
-                        </td>
-                    </tr>
+                            </td>
+                            <td><?php echo $resultado['horas_minimas']; ?> horas</td>
+                            <td class="acciones">
+                                <a href="<?php echo BASE_URL; ?>Formularios/Horario/EditarHorario.php?Id=<?php echo $resultado['id']; ?>"
+                                    class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                                <a href="<?php echo BASE_URL; ?>CRUD/Horario/eliminarHorario.php?Id=<?php echo $resultado['id']; ?>"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="event.preventDefault(); confirmarEliminacion(this.href)">
+                                    <i class="bi bi-trash3"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
                     <?php } ?>
                 </tbody>
             </table>

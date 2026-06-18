@@ -26,15 +26,15 @@ verificarRol(['Administrador']);
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
     <!--DataTables Botones-->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
-    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>src/css/styles.css">
 </head>
 
 <body>
 
-    <?php include('../src/includes/Componentes/sidebar.php'); ?>
+    <?php include(BASE_PATH . "src/includes/Componentes/sidebar.php"); ?>
 
     <main class="container mt-4">
-        <?php include('../src/includes/Componentes/userbar.php'); ?>
+        <?php include(BASE_PATH . "src/includes/Componentes/userbar.php"); ?>
 
         <h1 class="bg-primary p-3 text-white text-center rounded">👥 GESTIÓN DE USUARIOS DEL SISTEMA</h1>
 

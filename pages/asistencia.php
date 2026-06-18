@@ -81,11 +81,11 @@ verificarRol(['Administrador', 'Oficina']);
                         </td>
                         <td><?php echo $resultado['rol_nombre']; ?></td>
                         <td><?php echo date('d/m/Y', strtotime($resultado['fecha'])); ?></td>
-                        <td><?php echo $resultado['hora_entrada']; ?></td>
+                        <td><?php echo date('h:i A', strtotime($resultado['hora_entrada'])); ?></td>
                         <td>
                             <?php
                                 if ($resultado['hora_salida']) {
-                                    echo $resultado['hora_salida'];
+                                    echo date('h:i A', strtotime($resultado['hora_salida']));  
                                 } else {
                                     echo "<span class='badge bg-warning'>Sin registrar</span>";
                                 }
