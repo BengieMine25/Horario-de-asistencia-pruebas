@@ -13,7 +13,13 @@
 
 <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <h3><i class="bi bi-building"></i> Sistema de Asistencia</h3>
+        <div class="sidebar-brand">
+            <img src="<?php echo BASE_URL; ?>src/images/logo-uml.png" alt="Logo UML">
+            <div>
+                <strong>UNIVERSIDAD</strong>
+                <strong>Martín Lutero</strong>
+            </div>
+        </div>
     </div>
 
     <ul class="sidebar-menu">
@@ -22,7 +28,7 @@
                 <a href="<?php echo BASE_URL; ?>index.php" 
                     class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">       
                     <i class="bi bi-speedometer2"></i>
-                    <span>Dashboard</span>
+                    <strong>Dashboard</strong>
                 </a>
             </li>
 
@@ -30,7 +36,7 @@
                 <a href="<?php echo BASE_URL; ?>pages/usuario.php"
                     class="<?php echo basename($_SERVER['PHP_SELF']) == 'usuario.php' ? 'active' : ''; ?>">
                     <i class="bi bi-person-gear"></i>
-                    <span>Usuarios</span>
+                    <strong>Usuarios</strong>
                 </a>
             </li>
         <?php endif; ?>
@@ -38,7 +44,7 @@
         <!-- <li>
             <a href="perfil.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : ''; ?>">
                 <i class="bi bi-person-circle"></i>
-                <span>Mi Perfil</span>
+                <strong>Mi Perfil</strong>
             </a>
         </li> -->
 
@@ -46,7 +52,7 @@
             <a href="<?php echo BASE_URL; ?>pages/empleado.php"
                 class="<?php echo basename($_SERVER['PHP_SELF']) == 'empleado.php' ? 'active' : ''; ?>">
                 <i class="bi bi-people"></i>
-                <span>Empleados</span>
+                <strong>Empleados</strong>
             </a>
         </li>
 
@@ -54,7 +60,7 @@
             <a href="<?php echo BASE_URL; ?>pages/asistencia.php"
                 class="<?php echo basename($_SERVER['PHP_SELF']) == 'asistencia.php' ? 'active' : ''; ?>">
                 <i class="bi bi-calendar-check"></i>
-                <span>Asistencias</span>
+                <strong>Asistencias</strong>
             </a>
         </li>
 
@@ -62,7 +68,7 @@
             <a href="<?php echo BASE_URL; ?>pages/rol.php"
                 class="<?php echo basename($_SERVER['PHP_SELF']) == 'rol.php' ? 'active' : ''; ?>">
                 <i class="bi bi-person-badge"></i>
-                <span>Roles</span>
+                <strong>Roles</strong>
             </a>
         </li>
 
@@ -70,7 +76,7 @@
             <a href="<?php echo BASE_URL; ?>pages/horario.php"
                 class="<?php echo basename($_SERVER['PHP_SELF']) == 'horario.php' ? 'active' : ''; ?>">
                 <i class="bi bi-clock"></i>
-                <span>Horarios</span>
+                <strong>Horarios</strong>
             </a>
         </li>
 
@@ -78,7 +84,7 @@
             <a href="<?php echo BASE_URL; ?>pages/dia_no_laboral.php"
                 class="<?php echo basename($_SERVER['PHP_SELF']) == 'dia_no_laboral.php' ? 'active' : ''; ?>">
                 <i class="bi bi-calendar-x"></i>
-                <span>Días No Laborales</span>
+                <strong>Días No Laborales</strong>
             </a>
         </li>
     </ul>

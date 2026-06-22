@@ -506,6 +506,19 @@ h6 {
   font-weight: 600;
 }
 
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
 .sidebar-menu {
   list-style: none;
   padding: 0;

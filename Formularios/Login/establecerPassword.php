@@ -24,18 +24,123 @@ $usuario = $resultado->fetch_assoc();
     <title>Establecer Contraseña</title>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+    <style>
+        body {
+            background: #1d439c;
+            background: radial-gradient(circle at 50% 100%, #3b6ec5 0%, #153482 70%, #0f2561 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+        }
+
+        .login-page {
+            max-width: 480px;
+            margin: 30px auto;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 24px;
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .brand-logo img {
+            max-width: 130px;
+            height: auto;
+            display: inline-block;
+        }
+
+        .page-title {
+            color: #ffffff;
+            font-size: 1.9rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-custom {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #f8fafc;
+        }
+
+        .form-label {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .input-group-text {
+            background-color: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.92);
+            border: 1px solid transparent;
+            color: #1a1a1a;
+        }
+
+        .form-control:focus {
+            background-color: #ffffff;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-login {
+            background-color: #ffffff;
+            color: #153482;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #e2e8f0;
+            color: #0f2561;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 576px) {
+            .login-page {
+                margin: 20px 16px;
+            }
+
+            .brand-logo img {
+                max-width: 100px;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>  
-<body class="bg-light">  
+<body>  
     <div class="container">  
         <div class="row justify-content-center align-items-center" style="min-height: 100vh;">  
-            <div class="col-md-5">  
-                <div class="card shadow">  
+            <div class="col-12 login-page">  
+                <div class="card shadow login-card">  
                     <div class="card-body p-5">  
-                        <h2 class="text-center mb-4">  
+                        <div class="brand-logo">
+                            <img src="../../src/images/logo-uml.png" alt="Logo UML">
+                        </div>
+                        <h2 class="text-center page-title mb-2">  
                             <i class="bi bi-key"></i> Establecer Contraseña  
                         </h2>  
+                        <p class="text-center page-subtitle">Crea tu nueva contraseña para acceder al portal de la Universidad Martín Lutero.</p>  
                           
-                        <div class="alert alert-info" role="alert">  
+                        <div class="alert alert-custom" role="alert">  
                             <i class="bi bi-info-circle"></i>   
                             Bienvenido/a, <strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido']; ?></strong>.   
                             Por favor, establece una contraseña para tu cuenta.  
@@ -81,7 +186,7 @@ $usuario = $resultado->fetch_assoc();
                             </div>  
                               
                             <div class="d-grid">  
-                                <button type="submit" class="btn btn-primary btn-lg">  
+                                <button type="submit" class="btn btn-login btn-lg">  
                                     <i class="bi bi-check-circle"></i> Establecer Contraseña  
                                 </button>  
                             </div>  

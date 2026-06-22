@@ -2,7 +2,7 @@
   // Credenciales de la base de datos local
   $host = "localhost";
   $user = "root";
-  $pass = "wilgen12345";
+  $pass = "1qaz0plm";
   $db = "control_asistencia_completa_2";
 
   // Credenciales de la base de datos remota en infinityfree

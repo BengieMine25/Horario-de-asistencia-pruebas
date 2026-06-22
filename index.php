@@ -43,10 +43,20 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
 
   <?php include('src/includes/Componentes/sidebar.php'); ?>  
 
-  <main class="container py-4">  
+  <main class="container content-wrapper py-4">  
     <?php include('src/includes/Componentes/userbar.php'); ?> 
   
-    <h1 class="bg-primary p-3 text-white text-center rounded">📊 DASHBOARD DEL SISTEMA</h1>        
+    <div class="dashboard-hero p-4 rounded-4 text-white mb-4 text-center text-lg-start" style="background: linear-gradient(135deg, #1d439c, #3b6ec5);">
+      <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+        <div>
+          <h1 class="mb-2">Dashboard del Sistema</h1>
+          <p class="mb-0 text-light">Visualiza el estado de usuarios, asistencias, horarios y días no laborales con colores armónicos y accesibles.</p>
+        </div>
+        <div class="text-end">
+          <span class="badge rounded-pill hero-badge">Hoy: <?php echo date('d/m/Y'); ?></span>
+        </div>
+      </div>
+    </div>
 
     <!-- RESUMEN GENERAL -->
     <h3 class="mt-5"><i class="bi bi-bar-chart-fill"></i> Resumen General</h3>
