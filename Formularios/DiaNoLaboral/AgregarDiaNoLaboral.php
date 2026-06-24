@@ -6,97 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agregar Día No Laboral</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Agregar Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-    <!-- Agregar Select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../src/css/styles.css" />
+    <link rel="stylesheet" href="../../src/css/styles.css?v=2.2" />
 </head>
 
-<body>
-    <h1 class="bg-primary p-2 text-white text-center">Agregar Día No Laboral</h1>
-    <div class="container">
-        <form action="../../CRUD/DiaNoLaboral/insertarDiaNoLaboral.php" method="post">
-            <!-- Tipo de día no laboral -->
-            <label for="">Tipo</label>
-            <select class="form-select mb-3" name="Motivo" id="motivo" required onchange="toggleEmpleadoField()">
-                <option selected disabled>--Seleccionar tipo--</option>
-                <option value="Feriado">Feriado (Aplica a todos)</option>
-                <option value="Vacaciones">Vacaciones (Empleado específico)</option>
-            </select>
+<body class="bg-light">
 
-            <!-- Seleccionar empleado (solo para vacaciones) -->
-            <div id="empleadoField" style="display: none;">
-                <label for="">Empleado</label>
-                <select id="select2-empleado" class="form-select mb-3" name="EmpleadoId">
-                    <option selected disabled>--Seleccionar empleado--</option>
-                    <?php
-                    include("../../Config/Conexion.php");
-                    $sql = $conexion->query("SELECT empleados.id,   
-                                                    usuarios.nombre,   
-                                                    usuarios.apellido,   
-                                                    roles.nombre as rol_nombre     
-                                             FROM empleados  
-                                             INNER JOIN usuarios ON empleados.empleado_id = usuarios.id  
-                                             INNER JOIN roles ON empleados.rol_id = roles.id     
-                                             WHERE empleados.activo = 1     
-                                             ORDER BY usuarios.nombre ASC");
-                    while ($resultado = $sql->fetch_assoc()) {
-                        echo "<option value='" . $resultado['id'] . "'>" . $resultado['nombre'] . " " . $resultado['apellido'] . " - " . $resultado['rol_nombre'] . "</option>";
-                    }
-                    ?>
-                </select>
-            </div>
+    <div class="container" style="max-width: 650px;">
+        
+        <div class="form-card-container">
+            <h1 class="form-title-custom text-center mb-4">📅 Agregar Día No Laboral</h1>
+            
+            <form action="../../CRUD/DiaNoLaboral/insertarDiaNoLaboral.php" method="post">
+                
+                <div class="mb-3">
+                    <label class="form-label-custom">Tipo de Registro</label>
+                    <select class="form-select form-control-custom" name="Motivo" id="motivo" required onchange="toggleEmpleadoField()">
+                        <option selected disabled value="">-- Seleccionar tipo --</option>
+                        <option value="Feriado">Feriado (Aplica a todos)</option>
+                        <option value="Vacaciones">Vacaciones (Empleado específico)</option>
+                    </select>
+                </div>
 
-            <!-- Fecha de inicio -->
-            <div class="mb-3">
-                <label class="form-label">Fecha de Inicio</label>
-                <input type="date" class="form-control" name="FechaInicio" required>
-            </div>
+                <div id="empleadoField" class="mb-3 d-none">
+                    <label class="form-label-custom">Empleado</label>
+                    <select id="select2-empleado" class="form-select form-control-custom" name="EmpleadoId">
+                        <option selected disabled value="">-- Seleccionar empleado --</option>
+                        <?php
+                        include("../../Config/Conexion.php");
+                        $sql = $conexion->query("SELECT empleados.id,   
+                                                        usuarios.nombre,   
+                                                        usuarios.apellido,   
+                                                        roles.nombre as rol_nombre       
+                                                 FROM empleados  
+                                                 INNER JOIN usuarios ON empleados.empleado_id = usuarios.id  
+                                                 INNER JOIN roles ON empleados.rol_id = roles.id     
+                                                 WHERE empleados.activo = 1     
+                                                 ORDER BY usuarios.nombre ASC");
+                        while ($resultado = $sql->fetch_assoc()) {
+                            echo "<option value='" . $resultado['id'] . "'>" . $resultado['nombre'] . " " . $resultado['apellido'] . " - " . $resultado['rol_nombre'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-            <!-- Fecha de fin -->
-            <div class="mb-3">
-                <label class="form-label">Fecha de Fin</label>
-                <input type="date" class="form-control" name="FechaFin" required>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label-custom">Fecha de Inicio</label>
+                    <input type="date" class="form-control form-control-custom" name="FechaInicio" required>
+                </div>
 
-            <!-- Descripción -->
-            <div class="mb-3">
-                <label class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="Descripcion"
-                    placeholder="Ej: Día del Trabajador, Vacaciones anuales">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label-custom">Fecha de Fin</label>
+                    <input type="date" class="form-control form-control-custom" name="FechaFin" required>
+                </div>
 
-            <!-- Botones -->
-            <div class="text-center">
-                <button type="submit" class="btn btn-dark">Registrar</button>
-                <a href="../../pages/dia_no_laboral.php" class="btn btn-dark">Cancelar</a>
-            </div>
-        </form>
+                <div class="mb-4">
+                    <label class="form-label-custom">Descripción</label>
+                    <input type="text" class="form-control form-control-custom" name="Descripcion" placeholder="Ej: Día del Trabajador, Vacaciones anuales">
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn-submit-custom">
+                        <i class="bi bi-check-circle-fill me-1"></i> Registrar
+                    </button>
+                    <a href="../../pages/dia_no_laboral.php" class="btn-cancel-custom text-decoration-none d-flex align-items-center justify-content-center">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+
     </div>
 
     <script>
-        // Mostrar o ocultar el campo de empleado según el tipo de dia no laboral seleccionado
         function toggleEmpleadoField() {
             const motivo = document.getElementById('motivo').value;
             const empleadoField = document.getElementById('empleadoField');
-            const empleadoSelect = empleadoField.querySelector('select');
+            const empleadoSelect = document.getElementById('select2-empleado');
 
             if (motivo === 'Vacaciones') {
-                empleadoField.style.display = 'block';
+                empleadoField.classList.remove('d-none');
                 empleadoSelect.required = true;
             } else {
-                empleadoField.style.display = 'none';
+                empleadoField.classList.add('d-none');
                 empleadoSelect.required = false;
                 empleadoSelect.value = '';
+                // Forzar actualización visual si se usa Select2 en cascada
+                if (typeof jQuery !== 'undefined' && jQuery(empleadoSelect).data('select2')) {
+                    jQuery(empleadoSelect).val('').trigger('change');
+                }
             }
         }
     </script>
 
-    <!-- Incluir Flatpickr -->
     <?php include('../../src/includes/Dependencias/Flatpickr.php'); ?>
 
-    <!-- Incluir Select2 -->
     <?php include('../../src/includes/Dependencias/Select2.php'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

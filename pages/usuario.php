@@ -14,29 +14,32 @@ verificarRol(['Administrador']);
     <title>Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!--Dependencias-->
-    <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-    <!-- CSS de DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <!-- jQuery (requerido por DataTables) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- NUEVAS: DataTables Responsive -->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
-    <!--DataTables Botones-->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="../src/css/styles.css">
+
+    <style>
+        /* Estilizado del título principal acoplado a la línea institucional */
+        .titulo-modulo {
+            background: linear-gradient(135deg, #1d439c 0%, #153482 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
 
     <?php include('../src/includes/Componentes/sidebar.php'); ?>
 
-    <main class="container mt-4">
+    <main class="container mt-4 content-wrapper">
         <?php include('../src/includes/Componentes/userbar.php'); ?>
 
-        <h1 class="bg-primary p-3 text-white text-center rounded">👥 GESTIÓN DE USUARIOS DEL SISTEMA</h1>
+        <h1 class="titulo-modulo p-3 text-white text-center rounded mb-4">👥 GESTIÓN DE USUARIOS DEL SISTEMA</h1>
 
         <div class="text-end mb-3">
             <a href="<?php echo BASE_URL; ?>Formularios/Usuario/AgregarUsuario.php" class="btn btn-success">
@@ -44,8 +47,8 @@ verificarRol(['Administrador']);
             </a>
         </div>
 
-        <div class="table-container">
-            <table id="tabla" class="table table-hover">
+        <div class="table-container mb-5">
+            <table id="tabla" class="table table-hover w-100">
                 <thead>
                     <tr>
                         <th>Nombre Completo</th>
@@ -74,13 +77,16 @@ verificarRol(['Administrador']);
                                 $badge_class = '';
                                 switch ($resultado['rol_sistema']) {
                                     case 'Administrador':
-                                        $badge_class = 'bg-danger';
+                                        // Rojo corporativo formal
+                                        $badge_class = 'bg-danger text-white';
                                         break;
                                     case 'Oficina':
-                                        $badge_class = 'bg-warning text-dark';
+                                        // Ámbar/Oro formal
+                                        $badge_class = 'bg-warning text-white';
                                         break;
                                     case 'Empleado':
-                                        $badge_class = 'bg-info';
+                                        // Azul claro de asistencia corporativo
+                                        $badge_class = 'bg-primary text-white';
                                         break;
                                 }
                                 echo "<span class='badge $badge_class'>" . $resultado['rol_sistema'] . "</span>";
@@ -88,7 +94,7 @@ verificarRol(['Administrador']);
                         </td>
                         <td class="acciones">
                             <a href="<?php echo BASE_URL; ?>Formularios/Usuario/EditarUsuario.php?Id=<?php echo $resultado['id']; ?>"
-                                class="btn btn-warning btn-sm">
+                                class="btn btn-warning btn-sm text-white">
                                 <i class="bi bi-pencil"></i> Editar
                             </a>
                             <a href="<?php echo BASE_URL; ?>CRUD/Usuario/eliminarUsuario.php?Id=<?php echo $resultado['id']; ?>"
@@ -104,10 +110,8 @@ verificarRol(['Administrador']);
         </div>
     </main>
 
-    <!-- Inicializar DataTables -->
     <?php include(BASE_PATH . "src/includes/Dependencias/datatables.php"); ?>
 
-    <!-- Inicializar SweetAlert2 -->
     <?php include(BASE_PATH . "src/includes/Dependencias/sweetalert.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

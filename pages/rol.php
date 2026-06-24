@@ -14,37 +14,33 @@ verificarRol(['Administrador', 'Oficina']);
     <title>Roles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!--Dependencias-->
-    <!-- SweetAlert2 CSS -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-    <!-- CSS de DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <!-- jQuery (requerido por DataTables) -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- NUEVAS: DataTables Responsive -->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>src/css/styles.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>src/css/styles.css?v=1.5">
 </head>
 
-<body>
+<body class="bg-light">
 
     <?php include(BASE_PATH . "src/includes/Componentes/sidebar.php"); ?>
 
-    <main class="container mt-4">
+    <main class="container mt-4 mb-5">
         <?php include(BASE_PATH . "src/includes/Componentes/userbar.php"); ?>
 
-        <h1 class="bg-info p-3 text-white text-center rounded">📋 LISTADO DE ROLES</h1>
+        <h1 class="titulo-modulo-roles p-3 text-white text-center rounded mb-4">📋 LISTADO DE ROLES</h1>
 
         <div class="text-end mb-3">
-            <a href="<?php echo BASE_URL; ?>Formularios/Rol/AgregarRol.php" class="btn btn-success">
-                <i class="bi bi-plus-circle"></i> Agregar Rol
+            <a href="<?php echo BASE_URL; ?>Formularios/Rol/AgregarRol.php" class="btn btn-success px-3 fw-semibold">
+                <i class="bi bi-plus-circle me-1"></i> Agregar Rol
             </a>
         </div>
 
-        <div class="table-container">
-            <table id="tabla" class="table table-hover">
+        <div class="table-container shadow-sm bg-white p-3 rounded-4">
+            <table id="tabla" class="table table-hover align-middle m-0">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -57,34 +53,37 @@ verificarRol(['Administrador', 'Oficina']);
                     <?php
                     require(BASE_PATH . "Config/Conexion.php");
                     $sql = $conexion->query("SELECT roles.*, horarios.nombre as horario_nombre, horarios.tipo as horario_tipo  
-                                     FROM roles   
-                                     LEFT JOIN horarios ON roles.horario_id = horarios.id   
-                                     ORDER BY roles.nombre ASC");
+                                             FROM roles   
+                                             LEFT JOIN horarios ON roles.horario_id = horarios.id   
+                                             ORDER BY roles.nombre ASC");
                     while ($resultado = $sql->fetch_assoc()) {
                     ?>
                     <tr>
-                        <td><strong><?php echo $resultado['nombre']; ?></strong></td>
-                        <td><?php echo $resultado['descripcion'] ? $resultado['descripcion'] : '<span class="text-muted">Sin descripción</span>'; ?>
+                        <td><strong class="text-dark"><?php echo $resultado['nombre']; ?></strong></td>
+                        <td class="text-secondary">
+                            <?php echo $resultado['descripcion'] ? $resultado['descripcion'] : '<span class="text-muted italic small">Sin descripción</span>'; ?>
                         </td>
                         <td>
                             <?php
                                 if ($resultado['horario_nombre']) {
-                                    echo $resultado['horario_nombre'] . " (" . $resultado['horario_tipo'] . ")";
+                                    echo "<span class='badge bg-light text-dark border fw-medium'><i class='bi bi-clock text-primary me-1'></i>" . $resultado['horario_nombre'] . " (" . $resultado['horario_tipo'] . ")</span>";
                                 } else {
-                                    echo "<span class='text-muted'>Sin horario asignado</span>";
+                                    echo "<span class='text-muted small'>Sin horario asignado</span>";
                                 }
                                 ?>
                         </td>
                         <td class="acciones">
-                            <a href="<?php echo BASE_URL; ?>Formularios/Rol/EditarRol.php?Id=<?php echo $resultado['id']; ?>"
-                                class="btn btn-warning btn-sm">
-                                <i class="bi bi-pencil"></i> Editar
-                            </a>
-                            <a href="<?php echo BASE_URL; ?>CRUD/Rol/eliminarRol.php?Id=<?php echo $resultado['id']; ?>"
-                                class="btn btn-danger btn-sm"
-                                onclick="event.preventDefault(); confirmarEliminacion(this.href)">
-                                <i class="bi bi-trash3"></i> Eliminar
-                            </a>
+                            <div class="d-flex gap-2">
+                                <a href="<?php echo BASE_URL; ?>Formularios/Rol/EditarRol.php?Id=<?php echo $resultado['id']; ?>"
+                                   class="btn btn-warning btn-sm rounded-3">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </a>
+                                <a href="<?php echo BASE_URL; ?>CRUD/Rol/eliminarRol.php?Id=<?php echo $resultado['id']; ?>"
+                                   class="btn btn-danger btn-sm rounded-3"
+                                   onclick="event.preventDefault(); confirmarEliminacion(this.href)">
+                                    <i class="bi bi-trash3"></i> Eliminar
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     <?php } ?>
@@ -93,11 +92,10 @@ verificarRol(['Administrador', 'Oficina']);
         </div>
     </main>
 
-    <!-- Inicializar DataTables -->
     <?php include(BASE_PATH . "src/includes/Dependencias/datatables.php"); ?>
 
-    <!-- Inicializar SweetAlert2 -->
     <?php include(BASE_PATH . "src/includes/Dependencias/sweetalert.php"); ?>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

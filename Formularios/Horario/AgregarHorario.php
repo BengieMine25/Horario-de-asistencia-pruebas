@@ -5,56 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>Agregar Horario</title>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../src/css/styles.css" />  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../src/css/styles.css?v=1.9" />  
 </head>  
-<body>  
-    <h1 class="bg-primary p-2 text-white text-center">Agregar Horario</h1>  
-    <div class="container">  
-        <form action="../../CRUD/Horario/insertarHorario.php" method="post">  
-            <!-- Nombre del horario -->  
-            <div class="mb-3">  
-                <label class="form-label">Nombre del Horario</label>  
-                <input type="text" class="form-control" name="Nombre" placeholder="Ej: Turno Mañana" required>  
-            </div>  
-  
-            <!-- Tipo de horario -->  
-            <div class="mb-3">  
-                <label class="form-label">Tipo de Horario</label>  
-                <select class="form-select" name="Tipo" id="tipoHorario" required>  
-                    <option value="" selected disabled>--Seleccionar tipo--</option>  
-                    <option value="Fijo">Fijo</option>  
-                    <option value="Flexible">Flexible</option>  
-                </select>  
-            </div>  
-  
-            <!-- Hora inicio (solo para tipo Fijo) -->  
-            <div class="mb-3" id="horaInicioDiv" style="display:none;">  
-                <label class="form-label">Hora de Inicio</label>  
-                <input type="time" class="form-control" name="HoraInicio" id="horaInicio">  
-            </div>  
-  
-            <!-- Hora fin (solo para tipo Fijo) -->  
-            <div class="mb-3" id="horaFinDiv" style="display:none;">  
-                <label class="form-label">Hora de Fin</label>  
-                <input type="time" class="form-control" name="HoraFin" id="horaFin">  
-            </div>  
-  
-            <!-- Horas mínimas -->  
-            <div class="mb-3">  
-                <label class="form-label">Horas Mínimas Requeridas</label>  
-                <input type="number" class="form-control" name="HorasMinimas" step="0.5" min="0" max="24" value="8.00" required>  
-            </div>  
-  
-            <!-- Botones -->  
-            <div class="text-center">  
-                <button type="submit" class="btn btn-dark">Registrar</button>  
-                <a href="../../pages/horario.php" class="btn btn-dark">Cancelar</a>  
-            </div>  
-        </form>  
+<body class="bg-light">  
+    
+    <div class="container" style="max-width: 650px;">  
+        
+        <div class="form-card-container">
+            <h1 class="form-title-custom text-center mb-4">📅 Agregar Nuevo Horario</h1>  
+            
+            <form action="../../CRUD/Horario/insertarHorario.php" method="post">  
+                
+                <div class="mb-3">  
+                    <label class="form-label-custom">Nombre del Horario</label>  
+                    <input type="text" class="form-control form-control-custom" name="Nombre" placeholder="Ej: Turno Mañana" required>  
+                </div>  
+      
+                <div class="mb-3">  
+                    <label class="form-label-custom">Tipo de Horario</label>  
+                    <select class="form-select form-control-custom" name="Tipo" id="tipoHorario" required>  
+                        <option value="" selected disabled>-- Seleccionar tipo --</option>  
+                        <option value="Fijo">Fijo</option>  
+                        <option value="Flexible">Flexible</option>  
+                    </select>  
+                </div>  
+      
+                <div class="mb-3 d-none" id="horaInicioDiv">  
+                    <label class="form-label-custom">Hora de Inicio</label>  
+                    <input type="time" class="form-control form-control-custom" name="HoraInicio" id="horaInicio">  
+                </div>  
+      
+                <div class="mb-3 d-none" id="horaFinDiv">  
+                    <label class="form-label-custom">Hora de Fin</label>  
+                    <input type="time" class="form-control form-control-custom" name="HoraFin" id="horaFin">  
+                </div>  
+      
+                <div class="mb-4">  
+                    <label class="form-label-custom">Horas Mínimas Requeridas</label>  
+                    <input type="number" class="form-control form-control-custom" name="HorasMinimas" step="0.5" min="0" max="24" value="8.00" required>  
+                </div>  
+      
+                <div class="d-flex justify-content-center gap-3">  
+                    <button type="submit" class="btn-submit-custom">
+                        <i class="bi bi-check-circle-fill me-1"></i> Registrar
+                    </button>  
+                    <a href="../../pages/horario.php" class="btn-cancel-custom text-decoration-none d-flex align-items-center justify-content-center">
+                        Cancelar
+                    </a>  
+                </div>  
+            </form>  
+        </div>
+
     </div>  
   
     <script>  
-        // Mostrar o ocultar campos de hora según el tipo de horario
         document.getElementById('tipoHorario').addEventListener('change', function() {  
             const tipo = this.value;  
             const horaInicioDiv = document.getElementById('horaInicioDiv');  
@@ -63,13 +68,13 @@
             const horaFin = document.getElementById('horaFin');  
   
             if (tipo === 'Fijo') {  
-                horaInicioDiv.style.display = 'block';  
-                horaFinDiv.style.display = 'block';  
+                horaInicioDiv.classList.remove('d-none');  
+                horaFinDiv.classList.remove('d-none');  
                 horaInicio.required = true;  
                 horaFin.required = true;  
             } else {  
-                horaInicioDiv.style.display = 'none';  
-                horaFinDiv.style.display = 'none';  
+                horaInicioDiv.classList.add('d-none');  
+                horaFinDiv.classList.add('d-none');  
                 horaInicio.required = false;  
                 horaFin.required = false;  
                 horaInicio.value = '';  
