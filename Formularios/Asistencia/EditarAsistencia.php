@@ -15,7 +15,7 @@
     <div class="container" style="max-width: 650px;">  
         
         <div class="form-card-container">
-            <h1 class="form-title-custom text-center mb-4">📝 Registrar Asistencia</h1>  
+            <h1 class="form-title-custom text-center mb-4">📝 Editar Asistencia</h1>  
             
             <form action="../../CRUD/Asistencia/insertarAsistencia.php" method="post">  
                 
@@ -93,7 +93,7 @@
       
                 <div class="d-flex justify-content-center gap-3">  
                     <button type="submit" class="btn-submit-custom">
-                        <i class="bi bi-check-circle-fill me-1"></i> Registrar
+                        <i class="bi bi-check-circle-fill me-1"></i> Editar
                     </button>  
                     <a href="../../pages/asistencia.php" class="btn-cancel-custom text-decoration-none d-flex align-items-center justify-content-center">
                         Cancelar
