@@ -14,7 +14,22 @@ new Chart(ctx, {
     },  
     options: {  
         responsive: true,  
-        scales: { y: { beginAtZero: true } }  
+        plugins: {  
+            legend: {  
+                labels: {  
+                    color: '#ffffff'  
+                }  
+            }, 
+        },  
+        scales: {  
+            x: {  
+                ticks: { color: '#ffffff' }  
+            },  
+            y: {  
+                beginAtZero: true,  
+                ticks: { color: '#ffffff' }  
+            }  
+        }  
     }  
 });  
 </script>
