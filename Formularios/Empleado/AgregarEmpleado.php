@@ -14,7 +14,7 @@
     <div class="container" style="max-width: 650px;">  
         
         <div class="form-card-container">
-            <h1 class="form-title-custom text-center mb-4">👷 Agregar Empleado</h1>  
+            <h1 class="form-title-custom text-center mb-4">🧑‍💼 Agregar Empleado</h1>  
             
             <form action="../../CRUD/Empleado/insertarEmpleado.php" method="post">  
                 
