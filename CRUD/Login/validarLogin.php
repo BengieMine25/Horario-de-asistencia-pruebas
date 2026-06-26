@@ -40,8 +40,10 @@ if ($resultado->num_rows > 0) {
         } elseif ($usuario['rol_sistema'] == 'Oficina') {
             header("location: ../../pages/empleado.php");
         } else {  // Empleado    
-            // Empleado  
-            // 1. Obtener el id del empleado en la tabla empleados  
+            // Asegurar zona horaria correcta
+            date_default_timezone_set('America/Mexico_City'); // o 'America/Managua'
+
+            // 1. Obtener id del empleado
             $usuario_id = $usuario['id'];
             $sqlEmpleado = "SELECT id FROM empleados WHERE empleado_id = ? AND activo = 1 LIMIT 1";
             $stmtEmp = $conexion->prepare($sqlEmpleado);
@@ -53,13 +55,25 @@ if ($resultado->num_rows > 0) {
                 $empleado = $resEmp->fetch_assoc();
                 $empleado_id = $empleado['id'];
 
-                // 2. Registrar asistencia con fecha y hora actual  
-                $sqlAsistencia = "INSERT INTO asistencias (empleado_id, fecha, hora_entrada, hora_salida, total_horas)  
-                          VALUES (?, CURDATE(), CURTIME(), NULL, 0.00)";
-                $stmtAsis = $conexion->prepare($sqlAsistencia);
-                $stmtAsis->bind_param("i", $empleado_id);
-                $stmtAsis->execute();
-                $stmtAsis->close();
+                // 2. Verificar si ya existe asistencia para hoy
+                $fechaHoy = date('Y-m-d');
+                $sqlCheck = "SELECT id FROM asistencias WHERE empleado_id = ? AND fecha = ? LIMIT 1";
+                $stmtCheck = $conexion->prepare($sqlCheck);
+                $stmtCheck->bind_param("is", $empleado_id, $fechaHoy);
+                $stmtCheck->execute();
+                $resCheck = $stmtCheck->get_result();
+
+                if ($resCheck->num_rows == 0) {
+                    // No existe → registrar entrada con hora local exacta
+                    $horaEntrada = date('H:i:s');
+                    $sqlInsert = "INSERT INTO asistencias (empleado_id, fecha, hora_entrada) 
+                      VALUES (?, ?, ?)";
+                    $stmtInsert = $conexion->prepare($sqlInsert);
+                    $stmtInsert->bind_param("iss", $empleado_id, $fechaHoy, $horaEntrada);
+                    $stmtInsert->execute();
+                    $stmtInsert->close();
+                }
+                $stmtCheck->close();
             }
             $stmtEmp->close();
             header("location: ../../pages/perfil_empleado.php");
