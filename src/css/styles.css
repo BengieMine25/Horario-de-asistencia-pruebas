@@ -4,13 +4,11 @@
 
 /* General */
 body {
-  background-color: #1c1f33;
-  /* Fondo cósmico */
-  color: #d4d4f5;
-  /* Blanco azulado */
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
+  background: #1d439c;
+  background: radial-gradient(circle at 50% 100%, #2551b3 0%, #17388a 70%, #0f2561 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
 }
 
 /* Encabezado */
@@ -26,97 +24,96 @@ h3,
 h4,
 h5,
 h6 {
-  color: #ffeaa7 !important;
-  /* Dorado */
+  color: #ffffff !important;
+  /* Blanco limpio como en el portal */
 }
 
 /* Texto muted */
 .text-muted {
-  color: rgba(212, 212, 245, 0.65) !important;
-  /* Color suave y legible sobre fondo oscuro */
+  color: rgba(255, 255, 255, 0.75) !important;
+  /* Blanco translúcido muy legible */
   opacity: 1;
-  /* Garantiza que el color no se "desvanezca" más de lo esperado */
 }
 
 .text-muted-perfil {
   color: rgb(0, 0, 0) !important;
-  /* Color suave y legible sobre fondo oscuro */
   opacity: 1;
-  /* Garantiza que el color no se "desvanezca" más de lo esperado */
 }
 
 /* ============================================  
-   TABLAS GENERALES  
+    TABLAS GENERALES  
    ============================================ */
 
 /* Contenedor de tablas */
 .table-container {
-  background-color: #2c3b5c !important;
-  /* Fondo azul oscuro */
-  border-radius: 10px;
+  background-color: #ffffff !important;
+  /* Fondo blanco para contraste corporativo */
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 234, 167, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(29, 67, 156, 0.15);
 }
 
 /* Tablas */
 .table {
   background-color: transparent !important;
-  color: #d4d4f5 !important;
+  color: #2b303a !important;
+  /* Texto oscuro para máxima legibilidad en fondo blanco */
 }
 
 .table thead th {
-  background-color: #364775 !important;
-  /* Azul más claro */
-  color: #ffeaa7 !important;
-  /* Dorado */
-  border-bottom: 2px solid #ffeaa7 !important;
+  background-color: #1d439c !important;
+  /* Azul institucional UML */
+  color: #ffffff !important;
+  border-bottom: 2px solid #153482 !important;
   font-weight: bold;
 }
 
 /* Filas de datos */
 .table tbody tr {
-  background-color: rgba(44, 59, 92, 0.3) !important;
-  border-bottom: 1px solid rgba(255, 234, 167, 0.1) !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e9ecef !important;
   transition: all 0.3s ease !important;
 }
 
 .table tbody tr:hover {
-  background-color: rgba(255, 234, 167, 0.15) !important;
+  background-color: #f4f7fc !important;
+  /* Resaltado azul muy suave */
   transform: translateX(3px) !important;
-  box-shadow: 0 2px 8px rgba(255, 234, 167, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(29, 67, 156, 0.1) !important;
 }
 
 /* Celdas de datos */
 .table tbody td {
   background-color: transparent !important;
-  color: #d4d4f5 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #333333 !important;
+  border-bottom: 1px solid #e9ecef !important;
   padding: 12px 8px !important;
   vertical-align: middle !important;
 }
 
 /* Estados especiales */
 .table tbody tr:nth-child(even) {
-  background-color: rgba(44, 59, 92, 0.4) !important;
+  background-color: #f8fafc !important;
 }
 
 /* Celdas con texto importante */
 .table tbody td strong {
-  color: #ffeaa7 !important;
+  color: #1d439c !important;
+  /* Remarcado en azul de la universidad */
 }
 
 /* Celdas con horas o fechas */
 .table tbody td:contains("hrs"),
 .table tbody td:contains("/") {
-  font-family: 'Courier New', monospace !important;
-  color: #b8b8d8 !important;
+  font-family: 'Segoe UI', sans-serif !important;
+  color: #495057 !important;
 }
 
 .table .badge {
   padding: 5px 10px !important;
   font-weight: 500 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Nombre y apellido */
@@ -132,43 +129,297 @@ h6 {
 }
 
 /* ============================================  
-   DASHBOARD  
+    Formulario de login  
+   ============================================ */
+
+.body-login {
+  background: #1d439c;
+  background: radial-gradient(circle at 50% 100%, #3b6ec5 0%, #153482 70%, #0f2561 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+}
+
+.login-container {
+  max-width: 450px;
+  width: 100%;
+  margin: 50px auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.brand-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.brand-subtitle {
+  font-size: 0.9rem;
+  color: #b0c4de;
+  font-weight: 500;
+}
+
+.portal-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.portal-desc {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.brand-logo {
+  margin-bottom: 1rem;
+}
+
+.brand-logo img {
+  max-width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
+
+.form-label {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.input-group-text {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid transparent;
+  color: #1a1a1a;
+}
+
+.form-control:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.btn-login {
+  background-color: #ffffff;
+  color: #153482;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #e2e8f0;
+  color: #0f2561;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-container {
+    max-width: 360px;
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  .brand-logo img {
+    max-width: 100px;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .portal-title {
+    font-size: 1.6rem;
+  }
+
+  .portal-desc {
+    font-size: 0.95rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .btn-login {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .brand-logo img {
+    max-width: 160px;
+  }
+
+  .login-container {
+    max-width: 520px;
+  }
+
+  .portal-title {
+    font-size: 2.6rem;
+  }
+}
+
+/* ============================================  
+    Establecer password  
+   ============================================ */
+
+body.establecer-password-page {
+  background: #1d439c;
+  background: radial-gradient(circle at 50% 100%, #3b6ec5 0%, #153482 70%, #0f2561 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+}
+
+.ep-login-page {
+  max-width: 480px;
+  margin: 30px auto;
+}
+
+.ep-login-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+}
+
+.ep-brand-logo {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.ep-brand-logo img {
+  max-width: 130px;
+  height: auto;
+  display: inline-block;
+}
+
+.ep-page-title {
+  color: #ffffff;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.ep-page-subtitle {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.alert-ep-custom {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+}
+
+.form-label {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.input-group-text {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid transparent;
+  color: #1a1a1a;
+}
+
+.form-control:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.ep-btn-login {
+  background-color: #ffffff;
+  color: #153482;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.ep-btn-login:hover {
+  background-color: #e2e8f0;
+  color: #0f2561;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 576px) {
+  .ep-login-page {
+    margin: 20px 16px;
+  }
+
+  .ep-brand-logo img {
+    max-width: 100px;
+  }
+
+  .ep-page-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================  
+    DASHBOARD  
    ============================================ */
 
 .card {
   border: none;
   border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.2s ease-in-out;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Contenedores de tablas del dashboard */
 .dashboard-table-container {
-  background-color: rgba(44, 59, 92, 0.4) !important;
+  background-color: #ffffff !important;
+  /* Tarjetas de datos en blanco limpio */
   border-radius: 12px !important;
   padding: 20px !important;
   margin-bottom: 20px !important;
-  border: 1px solid rgba(255, 234, 167, 0.2) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Tablas específicas del dashboard */
 .dashboard-table-container .table {
   background-color: transparent !important;
-  color: #d4d4f5 !important;
+  color: #333333 !important;
   margin-bottom: 0 !important;
 }
 
 /* Encabezados de tablas del dashboard */
 .dashboard-table-container .table thead th {
-  background-color: rgba(54, 71, 117, 0.8) !important;
-  color: #ffeaa7 !important;
-  border: none !important;
+  background-color: #f8fafc !important;
+  color: #1d439c !important;
+  /* Texto azul de la UML */
+  border-bottom: 2px solid #e2e8f0 !important;
   padding: 15px 12px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
@@ -178,21 +429,21 @@ h6 {
 
 /* Filas de datos en tablas del dashboard */
 .dashboard-table-container .table tbody tr {
-  background-color: rgba(28, 31, 51, 0.3) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #edf2f7 !important;
   transition: all 0.3s ease !important;
 }
 
 .dashboard-table-container .table tbody tr:hover {
-  background-color: rgba(255, 234, 167, 0.1) !important;
+  background-color: #f0f4f8 !important;
   transform: translateX(5px) !important;
-  box-shadow: 0 2px 10px rgba(255, 234, 167, 0.15) !important;
+  box-shadow: 0 2px 10px rgba(29, 67, 156, 0.08) !important;
 }
 
 /* Celdas de datos */
 .dashboard-table-container .table tbody td {
   background-color: transparent !important;
-  color: #d4d4f5 !important;
+  color: #4a5568 !important;
   border: none !important;
   padding: 12px !important;
   vertical-align: middle !important;
@@ -200,7 +451,7 @@ h6 {
 
 /* Texto fuerte en celdas */
 .dashboard-table-container .table tbody td strong {
-  color: #ffeaa7 !important;
+  color: #1d439c !important;
   font-weight: 600 !important;
 }
 
@@ -210,41 +461,45 @@ h6 {
   font-weight: 500 !important;
   font-size: 0.8rem !important;
   border-radius: 6px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
 }
 
 .dashboard-table-container .badge.bg-success {
-  background: linear-gradient(135deg, #00b894, #00cec9) !important;
+  background: #10b981 !important;
+  /* Esmeralda corporativo */
   color: white !important;
 }
 
 .dashboard-table-container .badge.bg-warning {
-  background: linear-gradient(135deg, #fdcb6e, #f39c12) !important;
-  color: #2d3436 !important;
+  background: #f59e0b !important;
+  /* Ámbar/Dorado formal */
+  color: white !important;
 }
 
 .dashboard-table-container .badge.bg-danger {
-  background: linear-gradient(135deg, #d63031, #e17055) !important;
+  background: #ef4444 !important;
+  /* Rojo sobrio */
   color: white !important;
 }
 
 /* Estados especiales para tabla de empleados trabajando */
 .dashboard-table-container .table tbody tr:nth-child(even) {
-  background-color: rgba(44, 59, 92, 0.4) !important;
+  background-color: #f8fafc !important;
 }
 
 /* Texto muted en tablas */
 .dashboard-table-container .text-muted {
-  color: rgba(212, 212, 245, 0.5) !important;
+  color: #718096 !important;
   font-style: italic !important;
 }
 
 /* ============================================  
-   BOTONES  
+    BOTONES  
    ============================================ */
 
 .btn {
-  background: linear-gradient(90deg, #715aff, #394a96) !important;
+  background: #1d439c !important;
+  /* Azul plano UML */
   border: none !important;
   color: white !important;
   font-weight: 500;
@@ -252,31 +507,60 @@ h6 {
 }
 
 .btn:hover {
-  background: linear-gradient(90deg, #ffeaa7, #715aff) !important;
-  transform: scale(1.05);
-  box-shadow: 0px 0px 10px #ffeaa7 !important;
-  color: #1c1f33 !important;
+  background: #153482 !important;
+  /* Azul más oscuro al pasar el cursor */
+  transform: scale(1.03);
+  box-shadow: 0px 4px 12px rgba(29, 67, 156, 0.3) !important;
+  color: #ffffff !important;
 }
 
 .btn-success {
-  background: linear-gradient(90deg, #00b894, #00cec9) !important;
+  background: #10b981 !important;
+}
+
+.btn-success:hover {
+  background: #059669 !important;
 }
 
 .btn-danger {
-  background: linear-gradient(90deg, #d63031, #e17055) !important;
+  background: #ef4444 !important;
+}
+
+.btn-danger:hover {
+  background: #dc2626 !important;
 }
 
 .btn-warning {
-  background: linear-gradient(90deg, #fdcb6e, #f39c12) !important;
-  color: #2d3436 !important;
+  background: #f59e0b !important;
+  color: white !important;
+}
+
+.btn-warning:hover {
+  background: #d97706 !important;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #3498db, #2980b9) !important;
+  background: #3b82f6 !important;
+}
+
+.btn-primary:hover {
+  background: #2563eb !important;
 }
 
 .btn-secondary {
-  background: linear-gradient(90deg, #6c757d, #5a6268) !important;
+  background: #6b7280 !important;
+}
+
+.btn-secondary:hover {
+  background: #4b5563 !important;
+}
+
+.btn-dark {
+  background: #1f2937 !important;
+}
+
+.btn-dark:hover {
+  background: #111827 !important;
 }
 
 .btn svg {
@@ -289,37 +573,37 @@ h6 {
 }
 
 /* ============================================  
-   FORMULARIOS  
+    FORMULARIOS  
    ============================================ */
 
 .form-control,
 .form-select {
-  background-color: rgba(44, 59, 92, 0.9) !important;
-  border: 2px solid rgba(255, 234, 167, 0.4) !important;
-  color: #d4d4f5 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #333333 !important;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background-color: rgba(44, 59, 92, 1) !important;
-  border-color: #ffeaa7 !important;
-  box-shadow: 0 0 0 0.3rem rgba(255, 234, 167, 0.3) !important;
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #1d439c !important;
+  box-shadow: 0 0 0 0.25rem rgba(29, 67, 156, 0.2) !important;
+  color: #000000 !important;
 }
 
 .form-label {
-  color: #ffeaa7 !important;
+  color: #ffffff !important;
+  /* Mantiene visibilidad sobre el fondo general */
   font-weight: 600;
 }
 
 .form-control::placeholder {
-  color: rgba(212, 212, 245, 0.55);
+  color: #94a3b8;
   opacity: 1;
-  /* Firefox */
 }
 
 /* ============================================  
-   SELECT2  
+    SELECT2  
    ============================================ */
 
 .select2-container {
@@ -331,18 +615,16 @@ h6 {
   padding: 0.375rem 0.75rem !important;
   font-size: 1rem !important;
   line-height: 1.5 !important;
-  border: 1px solid #ced4da !important;
+  border: 1px solid #cbd5e1 !important;
   border-radius: 0.25rem !important;
-  background-color: #1c1f33 !important;
-  /* fondo oscuro */
-  color: #d4d4f5 !important;
-  /* texto */
+  background-color: #ffffff !important;
+  color: #333333 !important;
 }
 
 .select2-selection__rendered {
   padding: 0 !important;
   line-height: 1.5 !important;
-  color: #d4d4f5 !important;
+  color: #333333 !important;
 }
 
 .select2-selection__arrow {
@@ -350,152 +632,147 @@ h6 {
 }
 
 .select2-selection__arrow b {
-  border-color: #ffeaa7 transparent transparent transparent !important;
-  /* dorado */
+  border-color: #1d439c transparent transparent transparent !important;
 }
 
 .select2-container--default.select2-container--focus .select2-selection--single {
-  border-color: #ffeaa7 !important;
-  background-color: #2c3b5c !important;
-  /* azul oscuro */
+  border-color: #1d439c !important;
+  background-color: #ffffff !important;
 }
 
 /* Dropdown */
 .select2-dropdown {
-  background-color: #1c1f33 !important;
-  border: 1px solid #ffeaa7 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #1d439c !important;
 }
 
 /* Campo de búsqueda */
 .select2-search--dropdown .select2-search__field {
-  background-color: #2c3b5c !important;
-  border: 1px solid #ffeaa7 !important;
-  color: #d4d4f5 !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #333333 !important;
 }
 
 /* Opciones */
 .select2-results__option {
-  color: #d4d4f5 !important;
+  color: #333333 !important;
 }
 
 .select2-results__option--highlighted {
-  background-color: rgba(255, 234, 167, 0.2) !important;
-  color: #1c1f33 !important;
+  background-color: #1d439c !important;
+  color: #ffffff !important;
 }
 
 .select2-results__option[aria-selected="true"] {
-  background-color: rgba(255, 234, 167, 0.15) !important;
-  color: #1c1f33 !important;
+  background-color: #f1f5f9 !important;
+  color: #1d439c !important;
 }
 
 /* Select2 múltiple */
 .select2-container--default .select2-selection--multiple {
-  background-color: #1c1f33 !important;
-  border: 1px solid #ffeaa7 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background: #715aff !important;
-  border: 1px solid #ffeaa7 !important;
+  background: #1d439c !important;
+  border: 1px solid #153482 !important;
   color: white !important;
 }
 
 /* Placeholder */
 .select2-container--default .select2-selection--placeholder {
-  color: rgba(212, 212, 245, 0.5) !important;
+  color: #94a3b8 !important;
 }
 
 /* ============================================  
-   ALERTS  
+    ALERTS  
    ============================================ */
 
 .alert {
-  border: 2px solid rgba(255, 234, 167, 0.4) !important;
+  border: 1px solid transparent !important;
 }
 
 .alert-info {
-  background-color: rgba(3, 169, 244, 0.2) !important;
-  color: #03a9f4 !important;
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
 }
 
 .alert-success {
-  background-color: rgba(0, 206, 201, 0.2) !important;
-  color: #00cec9 !important;
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
 }
 
 .alert-warning {
-  background-color: rgba(255, 234, 167, 0.2) !important;
-  color: #ffeaa7 !important;
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
 }
 
 .alert-danger {
-  background-color: rgba(225, 112, 85, 0.2) !important;
-  color: #e17055 !important;
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
 }
 
 /* ============================================  
-   TABS  
+    TABS  
    ============================================ */
 
 .nav-tabs {
-  border-bottom: 1px solid #eee;
-  /* Separa las tabs del contenido */
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .nav-tabs .nav-link {
-  color: rgba(212, 212, 245, 0.8);
-  /* Color de texto suave */
-  background-color: #1c1f33;
-  /* Fondo oscuro de la tab */
-  border-color: #2c3b5c;
-  /* Borde del tab */
+  color: #475569;
+  background-color: #edf2f7;
+  border: 1px solid transparent;
+  border-bottom-color: transparent;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-tabs .nav-link:hover {
-  color: #ffeaa7;
-  /* Tono dorado cuando pasa el cursor */
-  background-color: #2c3b5c;
-  /* Fondo ligeramente más claro en hover */
+  color: #ffffff;
+  background-color: #1d439c;
+  border-color: #1d439c;
 }
 
 .nav-tabs .nav-link.active {
-  color: #ffeaa7 !important;
-  /* Dorado en el tab activo */
-  background-color: #2c3b5c !important;
-  /* Fondo azul oscuro en el tab activo */
-  border-color: #ffeaa7 !important;
-  /* Borde dorado para resaltar el tab activo */
+  color: #ffffff !important;
+  background-color: #0f2865 !important;
+  border-color: #0f2865 !important;
+  box-shadow: inset 0 -4px 0 0 #2563eb;
+  font-weight: 700;
 }
 
+
 /* ============================================  
-   SIDEBAR  
+    SIDEBAR  
    ============================================ */
 
 .sidebar {
-  background-color: #1c1f33 !important;
-  /* fondo cósmico */
-  border-right: 2px solid rgba(255, 234, 167, 0.4);
-  /* línea dorada */
+  background-color: #153482 !important;
+  /* Azul más oscuro continuo */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100vh;
-  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(180deg, #153482 0%, #0f2561 100%);
   transition: left 0.3s ease;
   z-index: 1000;
   overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar.active {
   left: 0;
 }
 
-
 .sidebar-header {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -506,6 +783,19 @@ h6 {
   font-weight: 600;
 }
 
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
 .sidebar-menu {
   list-style: none;
   padding: 0;
@@ -513,26 +803,26 @@ h6 {
 }
 
 .sidebar-menu li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-menu a {
   display: flex;
   align-items: center;
   padding: 15px 20px;
-  color: #ecf0f1;
+  color: #f8fafc;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .sidebar-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   padding-left: 25px;
 }
 
 .sidebar-menu a.active {
-  background: rgba(52, 152, 219, 0.3);
-  border-left: 4px solid #3498db;
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #ffffff;
 }
 
 .sidebar-menu i {
@@ -547,7 +837,7 @@ h6 {
   top: 20px;
   left: 20px;
   z-index: 999;
-  background: #3498db;
+  background: #1d439c;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -558,7 +848,7 @@ h6 {
 }
 
 .menu-toggle:hover {
-  background: #2980b9;
+  background: #153482;
   transform: scale(1.05);
 }
 
@@ -568,7 +858,7 @@ h6 {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 998;
   display: none;
 }
@@ -582,118 +872,199 @@ h6 {
 }
 
 /* ============================================  
-   BARRA DE USUARIO  
+    BARRA DE USUARIO SUPERIOR (USERBAR)
    ============================================ */
-
-/*Barra de usuario logeado*/
 .user-header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ffffff;
+  padding: 12px 24px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  border: 1px solid #e5e7eb;
 }
 
+/* Sección de Identidad de la Universidad */
+.bar-branding-section {
+  display: flex;
+  align-items: center;
+}
+
+.bar-logo-institucional {
+  height: 42px;
+  /* Tamaño balanceado para la cabecera */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Contenedor derecho (Acciones y Perfil) */
+.bar-actions-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Área de Información del Usuario */
 .user-info-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
+  border-right: 1px solid #e5e7eb;
+  padding-right: 20px;
 }
 
-.user-avatar {
-  font-size: 2.5rem;
-  color: white;
-  display: flex;
-  align-items: center;
+.user-avatar i {
+  font-size: 38px;
+  color: #1d439c;
+  transition: color 0.2s ease;
+}
+
+.user-avatar:hover i {
+  color: #153482;
 }
 
 .user-details {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-}
-
-.welcome-text {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-  font-weight: 400;
-}
-
-.user-name {
-  color: white;
-  font-size: 1.125rem;
-  font-weight: 600;
   line-height: 1.2;
 }
 
-.role-badge {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: fit-content;
+.welcome-text {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* ============================================
-   NOTIFICACIONES (PETICIONES)
-   ============================================ */
+.user-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+}
 
+.role-badge-custom {
+  align-self: start;
+  margin-top: 4px;
+  background-color: #ef4444 !important;
+  /* Rojo corporativo para roles */
+  color: #ffffff !important;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+/* Módulo de Notificaciones (Campana) */
 .notification-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
-  margin-left: 15px;
 }
 
 .notification-bell {
   position: relative;
-  font-size: 1.6rem;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  color: #6b7280;
+  font-size: 22px;
+  transition: color 0.2s ease;
 }
 
 .notification-bell:hover {
-  color: #ffc107;
-  transform: scale(1.1);
+  color: #1d439c;
 }
 
-/* Badge tipo Facebook */
-.notification-badge {
+/* Efecto de Alerta Activa */
+.notification-bell.has-notification i {
+  animation: pulso-campana 2s infinite ease-in-out;
+}
+
+.notification-badge-custom {
   position: absolute;
-  top: -8px;
-  right: -10px;
-  background: #dc3545;
-  /* Rojo Bootstrap */
+  top: -2px;
+  right: -4px;
+  background-color: #ef4444;
   color: white;
-  font-size: 0.70rem;
-  font-weight: 600;
-  padding: 4px 6px;
-  border-radius: 50px;
-  min-width: 20px;
-  text-align: center;
-  line-height: 1;
-  border: 2px solid white;
-  /* efecto flotante */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  animation: pulseNotification 1.8s infinite;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
 
-/* Animación sutil */
-@keyframes pulseNotification {
+/* Dropdown de Notificaciones Personalizado */
+.notification-dropdown {
+  width: 280px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  padding: 8px 0;
+}
+
+.dropdown-header-custom {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 13px;
+  padding: 8px 16px;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.notification-item-custom {
+  padding: 10px 16px !important;
+  border-bottom: 1px solid #f9fafb;
+  white-space: normal !important;
+}
+
+.notification-item-custom:hover {
+  background-color: #f0f4ff !important;
+}
+
+/* Botón de Cerrar Sesión */
+.btn-logout-custom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-logout-custom:hover {
+  background-color: #ffeeeb;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+/* Animación para la campana activa */
+@keyframes pulso-campana {
   0% {
     transform: scale(1);
   }
 
+  10% {
+    transform: rotate(15deg);
+  }
+
+  20% {
+    transform: rotate(-15deg);
+  }
+
+  30% {
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
   50% {
-    transform: scale(1.12);
+    transform: scale(1);
   }
 
   100% {
@@ -701,105 +1072,183 @@ h6 {
   }
 }
 
-.btn-logout {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(10px);
-  text-decoration: none;
-}
-
-.btn-logout:hover {
-  background: rgba(255, 255, 255, 0.25);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-logout i {
-  font-size: 1.125rem;
-}
-
 /* ============================================  
-   DATATABLES Y SCROLLBAR  
+    PAGINACIÓN DE DATATABLES ULTRA LLAMATIVA
    ============================================ */
 
-/* ==============================  
-   DataTables - Search input  
-   ============================== */
+/* Contenedor general de los botones de paginación */
+.dataTables_wrapper .dataTables_paginate {
+  padding-top: 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+/* Estilo base para TODOS los botones (Números, Anterior y Siguiente) */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background: #ffffff !important;
+  color: #1d439c !important;
+  /* Texto azul UML */
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease-in-out !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Botón de la página en la que está el usuario actualmente (Activo) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border-color: #153482 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(29, 67, 156, 0.3) !important;
+}
+
+/* Efecto al pasar el mouse por encima de los botones de números e interactivos */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #f1f5f9 !important;
+  border-color: #1d439c !important;
+  color: #1d439c !important;
+  transform: translateY(-1px);
+}
+
+/* DISEÑO EXCLUSIVO PARA LOS BOTONES "ANTERIOR" Y "SIGUIENTE" */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+  background: #ffffff !important;
+  border: 2px solid #1d439c !important;
+  /* Borde azul fuerte permanente */
+  color: #1d439c !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Efecto Hover específico para Anterior y Siguiente (Inversión de colores llamativa) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+  background: #1d439c !important;
+  /* Se vuelve azul completo */
+  color: #ffffff !important;
+  /* Texto blanco */
+  box-shadow: 0 4px 12px rgba(29, 67, 156, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+/* Estilo cuando el botón está deshabilitado (ej. no hay página anterior) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
 
 .dataTables_wrapper .dataTables_length {
-  color: rgb(255, 152, 17) !important;
-  margin-bottom: 15px
-}
-
-.dataTables_wrapper .dataTables_filter {
-  color: #d4d4f5 !important;
+  color: #1d439c !important;
   margin-bottom: 15px;
+  font-weight: 500;
 }
 
+.dataTables_wrapper .dataTables_length select {
+  background-color: #ffffff !important;
+  color: #1d439c !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  margin: 0 5px !important;
+  font-weight: bold;
+  outline: none;
+}
+
+/* BARRA DE BÚSQUEDA ULTRA LLAMATIVA */
+.dataTables_wrapper .dataTables_filter {
+  color: #1d439c !important;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  background-color: #ffffff !important;
+  color: #1c1f33 !important;
+  border: 2px solid #3b82f6 !important;
+  /* Borde azul inicial fuerte */
+  border-radius: 30px !important;
+  /* Bordes completamente redondeados estilo moderno */
+  padding: 8px 20px !important;
+  width: 280px !important;
+  /* Un poco más ancha para que destaque */
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  /* Sombra para darle profundidad */
+  transition: all 0.3s ease-in-out !important;
+  outline: none !important;
+}
+
+/* Efecto cuando el usuario hace clic para buscar */
+.dataTables_wrapper .dataTables_filter input:focus {
+  width: 320px !important;
+  /* Se expande suavemente */
+  border-color: #f59e0b !important;
+  /* Cambia a dorado/amarillo UML al activarse */
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.6) !important;
+  /* Resplandor dorado de alta visibilidad */
+  background-color: #ffffff !important;
+}
+
+/* Botones de paginación */
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background: linear-gradient(90deg, #715aff, #394a96) !important;
-  /* violeta-azul */
-  border: 1px solid #ffeaa7 !important;
-  /* dorado */
+  background: #1d439c !important;
+  border: 1px solid #153482 !important;
   color: white !important;
+  border-radius: 6px !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: linear-gradient(90deg, #ffeaa7, #715aff) !important;
-  color: #1c1f33 !important;
+  background: #153482 !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
 }
 
-/* DataTables adaptación */
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background: linear-gradient(90deg, #715aff, #394a96) !important;
-  border: #ffeaa7 !important;
-  color: white !important;
+.dataTables_wrapper .dataTables_info {
+  color: #1d439c !important;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: linear-gradient(90deg, #ffeaa7, #715aff) !important;
-  color: #1c1f33 !important;
-}
-
-/* Estilos para botones de DataTables con Bootstrap */
 div.dataTables_wrapper div.dt-buttons {
   padding-bottom: 7px !important;
 }
 
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1c1f33;
-  border-left: 1px solid #ffeaa7;
+  background: #0f2561;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #715aff, #394a96);
+  background: #1d439c;
   border-radius: 6px;
-  border: 2px solid #ffeaa7;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ffeaa7, #715aff);
+  background: #2551b3;
 }
 
 /* ============================================  
-   RESPONSIVIDAD  
+    RESPONSIVIDAD  
    ============================================ */
 
-/* Responsividad */
 @media (max-width: 768px) {
   .table-container {
     padding: 10px;
@@ -855,15 +1304,14 @@ div.dataTables_wrapper div.dt-buttons {
 }
 
 /* ============================================  
-   ESTILOS ADICIONALES DASHBOARD  
+    ESTILOS ADICIONALES DASHBOARD  
    ============================================ */
 
-/*dashboard*/
 .dashboard-table-container {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
@@ -871,6 +1319,363 @@ h1 {
 }
 
 h3 {
-  color: #343a40;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ============================================  
+    ESTILOS GLOBALES PARA FORMULARIOS (CREAR / EDITAR)
+   ============================================ */
+
+/* Contenedor tipo Tarjeta de Formulario */
+.form-card-container {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  padding: 2.5rem !important;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Títulos de Formulario */
+.form-title-custom {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(29, 67, 156, 0.3);
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  font-size: 1.75rem !important;
+}
+
+/* Etiquetas (Labels) */
+.form-label-custom {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+/* Inputs y Selects Estilizados */
+.form-control-custom {
+  background-color: #f8fafc !important;
+  border: 2px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  color: #334155 !important;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out !important;
+}
+
+/* Efecto de enfoque en los campos (Glow Amarillo/Azul UML) */
+.form-control-custom:focus {
+  background-color: #ffffff !important;
+  border-color: #1d439c !important;
+  box-shadow: 0 0 0 4px rgba(29, 67, 156, 0.15) !important;
+  color: #1e293b !important;
+  outline: none;
+}
+
+/* Botones del Formulario */
+.btn-submit-custom {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  /* Verde Esmeralda Exito */
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-submit-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+.btn-cancel-custom {
+  background: #64748b !important;
+  /* Gris Slate Elegante */
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-cancel-custom:hover {
+  background: #475569 !important;
+  transform: translateY(-2px);
+}
+
+/* ============================================  
+    VISTA VER ASISTENCIAS (ESTILOS UNIFICADOS)
+   ============================================ */
+
+/* Título superior de Asistencias con degradado UML */
+.titulo-asistencias {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Banner superior con datos del empleado */
+.profile-info-banner {
+  background-color: #f8fafc;
+  border-left: 5px solid #1d439c;
+  border-radius: 4px 12px 12px 4px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Tarjetas de Métricas de Horas (Semana, Quincena, Mes, Año) */
+.card-metrics {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.card-metrics:hover {
+  transform: translateY(-3px);
+}
+
+/* Degradados específicos para cada tarjeta de métricas */
+.metric-semana {
+  background: linear-gradient(135deg, #1d439c 0%, #2a59ca 100%) !important;
+}
+
+.metric-quincena {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.metric-mes {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.metric-anio {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+/* Contenedor blanco para la tabla de asistencias */
+.tabla-asistencias-container {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  padding: 1.5rem !important;
+}
+
+/* Contenedor blanco para el Gráfico Chart.js */
+.chart-card-custom {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 12px !important;
+}
+
+/* ============================================  
+    GESTIÓN DE ASISTENCIAS - LISTADO GENERAL
+   ============================================ */
+
+/* Cabecera principal con el degradado azul UML */
+.titulo-gestion-asistencias {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Ajustes finos de insignias de asistencia dentro de tablas */
+.table td .badge-sin-registrar {
+  background-color: #fef3c7 !important;
+  color: #d97706 !important;
+  border: 1px solid #fde68a !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+}
+
+/* ============================================  
+    DISEÑO DE FORMULARIOS GENERALES (CUSTOM)
+   ============================================ */
+
+/* Contenedor tipo Tarjeta para los formularios */
+.form-card-container {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+  padding: 2.5rem !important;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border: 1px solid #f1f5f9;
+}
+
+/* Título superior del formulario */
+.form-title-custom {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  letter-spacing: -0.5px;
+}
+
+/* Etiquetas (Labels) elegantes */
+.form-label-custom {
+  font-weight: 600 !important;
+  color: #475569 !important;
+  font-size: 0.9rem !important;
+  margin-bottom: 0.5rem !important;
+  display: inline-block;
+}
+
+/* Entradas de texto e Inputs modificados */
+.form-control-custom {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  color: #334155 !important;
+  font-size: 0.95rem !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.form-control-custom:focus {
+  border-color: #1d439c !important;
+  box-shadow: 0 0 0 3px rgba(29, 67, 156, 0.15) !important;
+  outline: 0;
+}
+
+/* Input de solo lectura (Total de Horas) */
+.form-control-custom[readonly] {
+  background-color: #f8fafc !important;
+  color: #64748b !important;
+  font-weight: 600;
+  border-style: dashed !important;
+}
+
+/* Botón Guardar / Registrar (Azul UML) */
+.btn-submit-custom {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 10px rgba(29, 67, 156, 0.2);
+}
+
+.btn-submit-custom:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(29, 67, 156, 0.3);
+  opacity: 0.95;
+}
+
+/* Botón Cancelar (Gris neutro) */
+.btn-cancel-custom {
+  background-color: #64748b !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-cancel-custom:hover {
+  background-color: #475569 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================  
+    MÓDULO DE ROLES - LISTADO GENERAL
+   ============================================ */
+
+/* Cabecera principal con el degradado azul UML */
+.titulo-modulo-roles {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================  
+    MÓDULO DE HORARIOS - LISTADO GENERAL
+   ============================================ */
+
+/* Cabecera con degradado institucional */
+.titulo-modulo-horarios {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Modificadores sutiles para los tipos de horarios */
+.badge-horario-fijo {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border: 1px solid #bae6fd !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+}
+
+.badge-horario-flexible {
+  background-color: #f0fdf4 !important;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+}
+
+/* ============================================  
+    MÓDULO DÍAS NO LABORALES - LISTADO GENERAL
+   ============================================ */
+
+/* Cabecera principal con el degradado institucional */
+.titulo-modulo-calendario {
+  background: linear-gradient(135deg, #1d439c 0%, #153482 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Personalización de las pestañas (Tabs) */
+.nav-tabs .nav-link {
+  color: #4b5563 !important;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.nav-tabs .nav-link.active {
+  color: #1d439c !important;
+  font-weight: 600;
+  background-color: #ffffff !important;
+  border-color: #e5e7eb #e5e7eb #ffffff !important;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.02);
+}
+
+/* Badges estilizados para el conteo de días */
+.badge-contador-feriados {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border: 1px solid #bae6fd;
+  padding: 5px 10px;
+  font-weight: 600;
+}
+
+.badge-contador-vacaciones {
+  background-color: #f0fdf4 !important;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0;
+  padding: 5px 10px;
   font-weight: 600;
 }
