@@ -1,12 +1,12 @@
-<?php  
+<?php
 date_default_timezone_set('America/Mexico_City'); // Ajusta según tu zona horaria
 // Proteger la página  
-require("Config/verificarSesion.php");  
-  
-// Solo administradores pueden ver esta página  
-verificarRol(['Administrador']);  
+require("Config/verificarSesion.php");
 
-require("Config/Conexion.php");  
+// Solo administradores pueden ver esta página  
+verificarRol(['Administrador']);
+
+require("Config/Conexion.php");
 
 $fecha_actual = date('Y-m-d');
 
@@ -27,31 +27,42 @@ $inicio_semana = date('Y-m-d', strtotime("-" . ($dia_semana - 1) . " days"));
 $fin_semana = date('Y-m-d', strtotime($inicio_semana . " +6 days"));
 $totalHorasSemana = $conexion->query("SELECT SUM(total_horas) as total FROM asistencias WHERE fecha BETWEEN '$inicio_semana' AND '$fin_semana'")->fetch_assoc()['total'] ?? 0;
 $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asistencias WHERE fecha BETWEEN '$inicio_semana' AND '$fin_semana'")->fetch_assoc()['total'];
-?>  
+?>
 
-<!doctype html>  
-<html lang="es">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
-  <title>Dashboard</title>  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">  
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="src/css/styles.css">
-</head>  
+</head>
 
-<body>  
+<body>
 
-  <?php include('src/includes/Componentes/sidebar.php'); ?>  
+  <?php include('src/includes/Componentes/sidebar.php'); ?>
 
-  <main class="container py-4">  
-    <?php include('src/includes/Componentes/userbar.php'); ?> 
-  
-    <h1 class="bg-primary p-3 text-white text-center rounded">📊 DASHBOARD DEL SISTEMA</h1>        
+  <main class="container py-4">
+    <?php include('src/includes/Componentes/userbar.php'); ?>
+
+    <div class="dashboard-hero p-4 rounded-4 text-white mb-4 text-center text-lg-start" style="background: linear-gradient(135deg, #1d439c, #3b6ec5);">
+      <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+        <div>
+          <h1 class="mb-2">Dashboard del Sistema</h1>
+          <p class="mb-0 text-light">Visualiza el estado de usuarios, asistencias, horarios y días no laborales con colores armónicos y accesibles.</p>
+        </div>
+        <div class="text-end">
+          <span class="badge rounded-pill hero-badge">Hoy: <?php echo date('d/m/Y'); ?></span>
+        </div>
+      </div>
+    </div>
 
     <!-- RESUMEN GENERAL -->
     <h3 class="mt-5"><i class="bi bi-bar-chart-fill"></i> Resumen General</h3>
-    <div class="row mt-4 g-3">  
+    <div class="row mt-4 g-3">
       <div class="col-md-4 col-lg-3">
         <div class="card bg-primary text-white text-center">
           <div class="card-body">
@@ -142,24 +153,24 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
         </div>
       </div>
     </div>
-  
-<!-- EMPLEADOS TRABAJANDO AHORA -->
-<h3 class="mt-5"><i class="bi bi-person-workspace"></i> Empleados Trabajando Ahora</h3>
-<div class="dashboard-table-container mb-4">
-  <table class="table table-hover align-middle">
-    <thead class="table-light">
-      <tr>
-        <th>Empleado</th>
-        <th>Rol</th>
-        <th>Hora Entrada</th>
-        <th>Tiempo Transcurrido</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-    
 
-      $sqlEmpleadosActivos = $conexion->query("
+    <!-- EMPLEADOS TRABAJANDO AHORA -->
+    <h3 class="mt-5"><i class="bi bi-person-workspace"></i> Empleados Trabajando Ahora</h3>
+    <div class="dashboard-table-container mb-4">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Empleado</th>
+            <th>Rol</th>
+            <th>Hora Entrada</th>
+            <th>Tiempo Transcurrido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+
+
+          $sqlEmpleadosActivos = $conexion->query("
         SELECT a.*, u.nombre, u.apellido, r.nombre AS rol_nombre
         FROM asistencias a
         INNER JOIN empleados e ON a.empleado_id = e.id
@@ -169,32 +180,32 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
         ORDER BY a.hora_entrada DESC
       ");
 
-      if ($sqlEmpleadosActivos->num_rows > 0) {
-        while ($emp = $sqlEmpleadosActivos->fetch_assoc()) {
+          if ($sqlEmpleadosActivos->num_rows > 0) {
+            while ($emp = $sqlEmpleadosActivos->fetch_assoc()) {
 
-          // Crear objetos DateTime para mayor precisión
-          $entrada = new DateTime("{$emp['fecha']} {$emp['hora_entrada']}");
-          $ahora = new DateTime();
+              // Crear objetos DateTime para mayor precisión
+              $entrada = new DateTime("{$emp['fecha']} {$emp['hora_entrada']}");
+              $ahora = new DateTime();
 
-          // Diferencia exacta
-          $intervalo = $entrada->diff($ahora);
-          $horas = $intervalo->h + ($intervalo->days * 24);
-          $minutos = $intervalo->i;
+              // Diferencia exacta
+              $intervalo = $entrada->diff($ahora);
+              $horas = $intervalo->h + ($intervalo->days * 24);
+              $minutos = $intervalo->i;
 
-          echo "<tr>
+              echo "<tr>
                   <td><strong>{$emp['nombre']} {$emp['apellido']}</strong></td>
                   <td>{$emp['rol_nombre']}</td>
                   <td>" . date('h:i A', strtotime($emp['hora_entrada'])) . "</td>
                   <td><span class='badge bg-success'>{$horas}h {$minutos}m</span></td>
                 </tr>";
-        }
-      } else {
-        echo "<tr><td colspan='4' class='text-center text-muted'>No hay empleados trabajando actualmente</td></tr>";
-      }
-      ?>
-    </tbody>
-  </table>
-</div>
+            }
+          } else {
+            echo "<tr><td colspan='4' class='text-center text-muted'>No hay empleados trabajando actualmente</td></tr>";
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
 
 
     <!-- ÚLTIMAS ASISTENCIAS -->
@@ -279,6 +290,7 @@ $totalAsistenciasSemana = $conexion->query("SELECT COUNT(*) as total FROM asiste
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
-</body>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
